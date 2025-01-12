@@ -1,0 +1,31 @@
+{
+  "name": "heat-battery",
+  "version": "1.0.0",
+  "description": "Calculations regarding a puffer tank used as a heat storage.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && cpy src/*.html dist",
+    "serve": "http-server dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrasz/heat-battery.git"
+  },
+  "keywords": [
+    "heat",
+    "battery",
+    "typescript"
+  ],
+  "author": "Zoltan Andras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrasz/heat-battery/issues"
+  },
+  "homepage": "https://github.com/andrasz/heat-battery#readme",
+  "devDependencies": {
+    "cpy-cli": "^5.0.0",
+    "http-server": "^14.1.1",
+    "typescript": "^5.7.3"
+  }
+}
