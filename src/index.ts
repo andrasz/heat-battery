@@ -1,15 +1,38 @@
 import { Puffer } from "./puffer.js";
 
+const p = new Puffer(40, 200, 28, 28, 28, 28, 77);
+
+
+function updateWaterTemp() {
+    queryTemps();
+    const div = document.querySelector('.percent') as HTMLDivElement;
+    div.textContent = p.getBatteryLvl().toFixed(1) + '%';
+};
+
+function queryTemps() {
+    const inp1 = document.getElementById('temperatureInput1') as HTMLInputElement;
+    const inp2 = document.getElementById('temperatureInput2') as HTMLInputElement;
+    const inp3 = document.getElementById('temperatureInput3') as HTMLInputElement;
+
+    p.setTemp(+inp1.value, +inp2.value, +inp3.value);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Loading ready');
-    const p = new Puffer(40, 200, 60, 62, 51, 28, 77);
 
-    p.logTemp();
-    p.logQ();
-    p.logLvl();
-    p.setTemp(66, 70, 66);
-    p.logLvl();
+    queryTemps();
+
+    // p.logTemp();
+    // p.logQ();
+    // p.logLvl();
+    updateWaterTemp();
+    document.querySelectorAll('.temp-inp').forEach((inp) => {
+        inp.addEventListener('input', updateWaterTemp);
+    })
 });
+
+(window as any).updateWaterTemperature = updateWaterTemp;
+
 
 // function updateWaterTemperature() {
 //     const input = document.getElementById('temperatureInput');

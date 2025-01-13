@@ -92,7 +92,7 @@ export class Puffer {
     } else if (h > 100) {
       return f2(h);
     } else {
-      return t2;
+      return +t2;
     }
   }
 }
